@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextClock;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private Button Login;
     private ImageView Food;
     private int counter = 3;
+    private TextView userRegistration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         Info = (TextView) findViewById(R.id.tvInfo);
         Login = (Button) findViewById(R.id.btnLogin);
         Food = (ImageView) findViewById(R.id.ivFood);
+        userRegistration = (TextView)findViewById(R.id.tvRegister);
 
         Info.setText("No of Attempts Remaining: 3");
 
@@ -37,7 +40,12 @@ public class MainActivity extends AppCompatActivity {
                 validate(Name.getText().toString(), Password.getText().toString());
             }
         });
-
+userRegistration.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
+    }
+});
     }
 
     private void validate(String userName, String userPassword) {
@@ -53,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
 
             if (counter == 0) {
                 Login.setEnabled(false);
+            }
+            else{
+                Login.setEnabled(true);
             }
         }
     }

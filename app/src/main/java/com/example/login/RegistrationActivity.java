@@ -1,5 +1,6 @@
 package com.example.login;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,6 +11,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class RegistrationActivity extends AppCompatActivity {
@@ -32,6 +36,22 @@ private FirebaseAuth firebaseAuth;
             public void onClick(View view) {
                 if (validate()){
                     //upload data to the database
+                    String user_email = userEmail.getText().toString().trim();
+                    String user_password = userPassword.getText().toString().trim();
+                    firebaseAuth.createUserWithEmailAndPassword(user_email, user_password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+
+                            if (task.isSuccessful()) {
+                                Toast.makeText(RegistrationActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
+                            }else {
+                                Toast.makeText(RegistrationActivity.this, "Registration Failed", Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+                    });
+
                 }
             }
         });
@@ -58,11 +78,13 @@ private FirebaseAuth firebaseAuth;
         String email = userEmail.getText().toString();
 
         if (name.isEmpty() && password.isEmpty() && email.isEmpty()) {
-            Toast.makeText(this, "please enter all details", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "please enter all details", Toast.LENGTH_SHORT).show();
+            return false;
 
         }else {
             result = true;
 
         }
+        return true ;
     }
 }
