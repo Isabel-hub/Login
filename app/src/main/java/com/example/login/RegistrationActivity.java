@@ -77,7 +77,7 @@ private FirebaseAuth firebaseAuth;
         String password = userPassword.getText().toString();
         String email = userEmail.getText().toString();
 
-        if (name.isEmpty() && password.isEmpty() && email.isEmpty()) {
+        if (name.isEmpty() || password.isEmpty() || email.isEmpty()) {
             Toast.makeText(this, "please enter all details", Toast.LENGTH_SHORT).show();
             return false;
 
