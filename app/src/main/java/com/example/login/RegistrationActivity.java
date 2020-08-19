@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class RegistrationActivity extends AppCompatActivity {
 private EditText userName, userPassword, userEmail;
 private Button regButton;
@@ -23,7 +25,7 @@ private FirebaseAuth firebaseAuth;
         setContentView(R.layout.activity_registration);
         setupUIViews();
 
-        firebaseAuth = FirebaseAuth.getInstance;
+        firebaseAuth = FirebaseAuth.getInstance();
 
         regButton.setOnClickListener(new View.OnClickListener() {
             @Override
