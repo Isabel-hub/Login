@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class RegistrationActivity extends AppCompatActivity {
 private EditText userName, userPassword, userEmail;
-private Button regButton;
+private Button regButton, btnName, btnEmail, btnPassword;
 private TextView userLogin;
 private FirebaseAuth firebaseAuth;
 
@@ -69,6 +69,9 @@ private FirebaseAuth firebaseAuth;
         userEmail = (EditText)findViewById(R.id.etUserEmail);
         regButton = (Button) findViewById(R.id.btnRegister);
         userLogin = (TextView) findViewById(R.id.tvUserLogin);
+        btnName = (Button) findViewById(R.id.btnName);
+        btnEmail = (Button) findViewById(R.id.btnEmail);
+        btnPassword = (Button) findViewById(R.id.btnPassword);
     }
     private Boolean validate(){
         Boolean result = false;
