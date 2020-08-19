@@ -14,12 +14,16 @@ public class RegistrationActivity extends AppCompatActivity {
 private EditText userName, userPassword, userEmail;
 private Button regButton;
 private TextView userLogin;
+private FirebaseAuth firebaseAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         setupUIViews();
+
+        firebaseAuth = FirebaseAuth.getInstance;
 
         regButton.setOnClickListener(new View.OnClickListener() {
             @Override
