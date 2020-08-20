@@ -8,9 +8,9 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="193dp"
-        android:layout_height="43dp"
-        android:text="Welcome!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WELCOME TO THE 5 STAR LUXURY HOTEL VILLA ROSA KEMPINSKI NAIROBI Offering the perfect fusion of European luxury and Kenyan hospitality, Villa Rosa Kempinski is a unique destination where guests can spend time relaxing or working.  In addition to the 200 rooms and suites distributed throughout its ten floors, you will also find exquisite dining opportunities here. Our dining selection includes Cafe Villa Rosa, K Lounge our lobby lounge; Balcony Bar, Chinese Restaurant 88; Italian Restaurant LUCCA; and our Levant -style lounge and restaurant Tambourin.  The hotel also has a grand ballroom and Kempinski The Spa.  Kempinski White Glove Services has been implemented to ensure a healthy and safe environment for all our guests and employees worldwide, at all times."
         android:textAlignment="center"
         android:textColor="#2C0303"
         android:textSize="24sp"
